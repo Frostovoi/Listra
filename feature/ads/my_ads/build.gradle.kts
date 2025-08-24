@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.my_ads"
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdkVersion(libs.versions.compileSdk.get().toInt())
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(project(":core:navigation"))
+    implementation(project(":feature:ads:ads_repo"))
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

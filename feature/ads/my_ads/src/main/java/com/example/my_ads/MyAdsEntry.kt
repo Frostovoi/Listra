@@ -17,5 +17,4 @@ class MyAdsEntry @Inject constructor(): FeatureEntry {
             MyAdsScreen()
         }
     }
-
 }

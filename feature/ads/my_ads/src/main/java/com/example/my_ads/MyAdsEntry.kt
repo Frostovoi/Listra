@@ -14,7 +14,7 @@ class MyAdsEntry @Inject constructor(): FeatureEntry {
 
     override fun register(builder: NavGraphBuilder, navigator: Navigator) {
         builder.composable(route = featureRoute) {
-            MyAdsScreen()
+           // MyAdsScreen()
         }
     }
 }

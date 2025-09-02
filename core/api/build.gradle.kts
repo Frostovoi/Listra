@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = "com.example.ads_repo"
+    namespace = "com.example.api"
     compileSdk = 36
 
     defaultConfig {
@@ -34,12 +33,6 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":core:api"))
-
-    //Dagger2
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

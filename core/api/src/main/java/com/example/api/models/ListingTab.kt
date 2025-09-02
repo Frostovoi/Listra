@@ -1,4 +1,4 @@
-package com.example.my_ads.models
+package com.example.api.models
 
 enum class ListingTab {
     Active,

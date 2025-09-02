@@ -1,14 +1,16 @@
 package com.example.listra.di
 
 import android.app.Application
+import com.example.ads_repo.di.AdsRepositoryModule
 import com.example.listra.App
 import com.example.listra.MainActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(
-    modules = [NavigatorModule::class, FeatureModulesAggregator::class ]
-
+    modules = [NavigatorModule::class, FeatureModulesAggregator::class, AdsRepositoryModule::class]
 )
 interface AppComponent {
 

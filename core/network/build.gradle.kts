@@ -6,14 +6,18 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ads_repo"
+    namespace = "com.example.network"
     compileSdk = 36
+
+    buildFeatures { buildConfig = true }
 
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildConfigField("String", "BASE_URL", "\"https://api.example.com/\"")
     }
 
     buildTypes {
@@ -36,21 +40,13 @@ android {
 
 dependencies {
 
-    implementation(project(":core:api"))
-    implementation(project(":core:network"))
-
-    // Dagger2
+    // Dagger 2
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 
     // Retrofit
-    implementation(libs.bundles.retrofit.kotlinx)
+    api(libs.bundles.retrofit.kotlinx)
 
-
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

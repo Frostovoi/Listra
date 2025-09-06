@@ -47,7 +47,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(project(":feature:ads:ads_repo"))
     implementation(project(":core:navigation"))
     implementation(project(":core:api"))
     implementation(libs.androidx.material3)

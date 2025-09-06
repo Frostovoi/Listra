@@ -21,6 +21,14 @@ coroutines = "1.10.2"
 androidx-lifecycle-compose = "2.9.3"
 androidx-lifecycle-runtime-compose = "2.9.3"
 lifecycle= "2.9.3"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+moshi = "1.15.1"
+kotlinx-serialization = "1.7.3"
+gson = "2.11.0"
+ksp = "2.0.20-1.0.25"
+jetbrainsKotlinJvm = "2.2.10"
+
 
 [libraries]
 dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
@@ -59,8 +67,30 @@ androidx-lifecycle-viewModelCompose = { module = "androidx.lifecycle:lifecycle-v
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle-runtime-compose" }
 androidx-lifecycle-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 
+# Retrofit core + конвертеры
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+retrofit-converter-kotlinx = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" } # если нужен Gson
+
+# OkHttp (для логов запросов)
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+# Moshi (и кодоген, если используете @JsonClass(generateAdapter = true))
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+
+# kotlinx.serialization JSON (если используете converter-kotlinx)
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+# Gson
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
 [bundles]
 coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
+retrofit-moshi = ["retrofit", "retrofit-converter-moshi", "okhttp-logging", "moshi"]
+retrofit-kotlinx = ["retrofit", "retrofit-converter-kotlinx", "okhttp-logging", "kotlinx-serialization-json"]
+retrofit-gson = ["retrofit", "retrofit-converter-gson", "okhttp-logging", "gson"]
 
 [plugins]
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
@@ -68,4 +98,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 

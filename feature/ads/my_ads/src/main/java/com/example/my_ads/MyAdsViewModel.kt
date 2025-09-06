@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ads_repo.AdsRepository
+import com.example.api.repository.AdsRepository
 import com.example.api.models.ListingTab
 import com.example.api.models.MyAdsUiState
 import kotlinx.coroutines.launch

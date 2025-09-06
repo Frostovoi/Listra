@@ -1,6 +1,6 @@
 package com.example.ads_repo.di
 
-import com.example.ads_repo.AdsRepository
+import com.example.api.repository.AdsRepository
 import com.example.ads_repo.AdsRepositoryImpl
 import dagger.Binds
 import dagger.Module

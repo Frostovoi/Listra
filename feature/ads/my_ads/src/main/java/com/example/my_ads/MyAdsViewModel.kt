@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.api.repository.AdsRepository
 import com.example.api.models.ListingTab
 import com.example.api.models.MyAdsUiState
+import com.example.network.utils.doOnSuccess
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,8 +22,10 @@ class MyAdsViewModel @Inject constructor(private val repository: AdsRepository) 
     fun onTabChange(tab: ListingTab) {
         _uiState = _uiState.copy(currentTab = tab, isLoading = true)
         viewModelScope.launch {
-            val ads = repository.loadAds(tab)
-            _uiState = _uiState.copy(ads = ads, isLoading = false)
+            repository.loadAds(tab).doOnSuccess {
+                _uiState = _uiState.copy(ads = it, isLoading = false)
+            }
+
         }
 
     }

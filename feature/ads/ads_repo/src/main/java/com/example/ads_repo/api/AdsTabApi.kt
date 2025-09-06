@@ -6,7 +6,10 @@ import retrofit2.http.Path
 
 interface AdsTabApi {
 
-    @GET("{listingTab}")
+    @GET("/{listingTab}")
     suspend fun getAds(@Path("listingTab") listingTab: String): AdsTabDto
 
+
+    @GET("connect")
+    suspend fun connect(): String
 }

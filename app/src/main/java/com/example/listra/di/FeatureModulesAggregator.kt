@@ -14,7 +14,7 @@ import dagger.Module
         PostAdEntryModule::class,
         DetailsEntryModule::class,
         ProfileEntryModule::class,
-        AuthEntryModule::class,
+        AuthEntryModule::class
     ]
 )
 object FeatureModulesAggregator

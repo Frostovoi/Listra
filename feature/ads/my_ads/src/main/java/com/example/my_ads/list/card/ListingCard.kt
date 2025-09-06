@@ -19,8 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.my_ads.models.ListingItem
-import com.example.my_ads.models.ListingStatus
+import com.example.api.models.ListingItem
+import com.example.api.models.ListingStatus
 import java.time.LocalDate
 
 @Composable
@@ -32,8 +32,7 @@ fun ListingCard(
         .fillMaxWidth()
         .clickable{ onOpen() }
         .padding(
-            horizontal = 16.dp,
-            vertical = 8.dp
+            all = 16.dp
         )
     ) {
         CardImage(ad.imageUrl)
@@ -46,11 +45,11 @@ fun ListingCard(
                 overflow = TextOverflow.Ellipsis
             )
 
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(8.dp))
             Text(
                 text = ad.price,
             )
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(6.dp))
 
             Text(
                 text = ad.location,

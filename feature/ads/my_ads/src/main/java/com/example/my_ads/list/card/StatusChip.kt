@@ -7,7 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.my_ads.models.ListingStatus
+import com.example.api.models.ListingStatus
 
 @Composable
 fun StatusChip(

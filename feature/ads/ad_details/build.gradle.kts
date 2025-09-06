@@ -37,7 +37,6 @@ android {
 dependencies {
 
     implementation(project(":core:navigation"))
-    implementation(project(":feature:ads:ads_repo"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

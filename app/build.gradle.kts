@@ -50,6 +50,9 @@ android {
 
 dependencies {
     implementation(project(":core:navigation"))
+    implementation(project(":core:api"))
+    implementation(project(":core:network"))
+    implementation(project(":feature:ads:ads_repo"))
     implementation(project(":feature:ads:my_ads"))
     implementation(project(":feature:ads:post_ad"))
     implementation(project(":feature:ads:ad_details"))

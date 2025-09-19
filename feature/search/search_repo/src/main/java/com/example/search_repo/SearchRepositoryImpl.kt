@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 class SearchRepositoryImpl @Inject constructor(private val searchApi: SearchApi): SearchRepository {
     override suspend fun searchAds(query: String): Result<List<ListingItem>, Throwable> {
-        TODO("Not yet implemented")
+        return Result.Success(emptyList())
+
     }
 }

@@ -2,6 +2,7 @@ package com.example.my_ads
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.api.models.ListingItem
@@ -14,18 +15,20 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 
-class MyAdsEntry @Inject constructor(private val viewModel: MyAdsViewModel): FeatureEntry {
+class MyAdsEntry @Inject constructor(
+    private val vmFactory: ViewModelProvider.Factory
+): FeatureEntry {
 
     override val featureRoute = Destinations.MyAds.route
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun register(builder: NavGraphBuilder, navigator: Navigator) {
         builder.composable(route = featureRoute) {
-            MyAdsScreen(
-                state = viewModel.uiState,
-                onAddNewAdClick = {},
-                onOpenAd = {},
-                onTabChange = viewModel::onTabChange
+            MyAdsHost(
+                vmFactory = vmFactory,
+                backStackEntry = it,
+                onOpenAd = { },
+                onAddNewAdClick = { }
             )
         }
     }

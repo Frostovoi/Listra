@@ -55,12 +55,15 @@ dependencies {
     implementation(project(":core:di"))
 
     implementation(project(":feature:ads:ads_repo"))
+    implementation(project(":feature:search:search_repo"))
+
     implementation(project(":feature:ads:my_ads"))
     implementation(project(":feature:ads:post_ad"))
     implementation(project(":feature:ads:ad_details"))
     implementation(project(":feature:profile:profile"))
     implementation(project(":feature:authentication:auth"))
     implementation(project(":feature:search:search_screen"))
+
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)

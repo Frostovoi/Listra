@@ -19,9 +19,5 @@ class AdsRepositoryImpl @Inject constructor(private val adsTabApi: AdsTabApi) : 
     override suspend fun loadAds(tab: ListingTab): Result<List<ListingItem>, Throwable> {
         return runOperationCatching { adsTabApi.getAds(tab.name).toAdsList() }
 
-//        safeApiCall { adsTabApi.getAds(tab.name) }
-//            .map { adsTabApi.getAds(tab.name) }
-//            .map { dtoList -> dtoList.toAdsList() }
-//            .toAdsList()
     }
 }

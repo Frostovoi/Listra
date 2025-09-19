@@ -3,6 +3,7 @@ package com.example.listra.di
 import android.app.Application
 import com.example.ads_repo.di.AdsNetworkModule
 import com.example.ads_repo.di.AdsRepositoryModule
+import com.example.di.di.ViewModelFactoryModule
 import com.example.listra.App
 import com.example.listra.MainActivity
 import com.example.network.di.NetworkModule
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 @Component(
     modules = [
         NavigatorModule::class, FeatureModulesAggregator::class, AdsRepositoryModule::class,
-        NetworkModule::class, AdsNetworkModule::class]
+        NetworkModule::class, AdsNetworkModule::class, ViewModelFactoryModule::class]
 )
 interface AppComponent {
 

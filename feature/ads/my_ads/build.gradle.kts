@@ -50,6 +50,7 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:api"))
     implementation(project(":core:network"))
+    implementation(project(":core:di"))
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

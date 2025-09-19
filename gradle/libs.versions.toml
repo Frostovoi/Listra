@@ -28,6 +28,8 @@ kotlinx-serialization = "1.7.3"
 gson = "2.11.0"
 ksp = "2.0.20-1.0.25"
 jetbrainsKotlinJvm = "2.2.10"
+lifecycleViewmodelAndroid = "2.9.3"
+lifecycleViewmodelDesktop = "2.9.3"
 
 
 [libraries]
@@ -85,6 +87,7 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 
 # Gson
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
 
 [bundles]
 coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]

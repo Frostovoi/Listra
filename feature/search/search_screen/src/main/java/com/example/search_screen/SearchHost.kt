@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import com.example.api.models.ListingItem
+import com.example.search_screen.ui.SearchScreen
 
 @Composable
 fun SearchHost(

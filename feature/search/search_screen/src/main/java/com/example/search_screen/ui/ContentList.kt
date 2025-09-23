@@ -1,14 +1,14 @@
-package com.example.search_screen
+package com.example.search_screen.ui
 
 import androidx.compose.runtime.Composable
 import com.example.api.models.ListingItem
 import com.example.api.models.states.SearchUiState
 
 @Composable
-fun SearchScreen(
+fun ContentList(
     state: SearchUiState,
-    onSearchQueryChange: (String) -> Unit,
-    onOpenAd: (ListingItem) -> Unit
+    onOpenAd: (ListingItem) -> Unit = {},
+    onRetry: () -> Unit = {}
 ) {
-
+    TODO()
 }

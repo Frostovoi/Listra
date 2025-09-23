@@ -5,5 +5,6 @@ import com.example.api.models.ListingItem
 data class SearchUiState(
     val isLoading: Boolean = false,
     val searchQuery: String = "",
-    val ads: List<ListingItem> = emptyList()
+    val ads: List<ListingItem> = emptyList(),
+    val history: List<String> = emptyList()
 )

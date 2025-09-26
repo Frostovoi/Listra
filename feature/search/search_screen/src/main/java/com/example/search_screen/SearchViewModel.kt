@@ -22,7 +22,7 @@ class SearchViewModel @Inject constructor(private val searchRepository: SearchRe
         viewModelScope.launch {
             searchRepository.searchAds(query)
                 .doOnSuccess {
-                    _uiState.value = _uiState.value.copy(ads = it, isLoading = false)
+                    _uiState.value = _uiState.value.copy(resultAds = it, isLoading = false)
             }
         }
     }

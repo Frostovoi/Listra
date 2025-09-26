@@ -7,13 +7,14 @@ import com.example.my_ads.di.MyAdsViewModelModule
 import com.example.post_ad.di.PostAdEntryModule
 import com.example.profile.di.ProfileEntryModule
 import com.example.search_screen.di.SearchEntryModule
+import com.example.search_screen.di.SearchViewModelModule
 import dagger.Module
 
 
 @Module(
     includes = [
         MyAdsEntryModule::class, MyAdsViewModelModule::class,
-        SearchEntryModule::class,
+        SearchEntryModule::class, SearchViewModelModule::class,
         PostAdEntryModule::class,
         DetailsEntryModule::class,
         ProfileEntryModule::class,

@@ -14,7 +14,7 @@ fun AppRoot(
 ) {
    NavHost(
        navController = navController,
-       startDestination = Destinations.MyAds.route
+       startDestination = Destinations.Search.route
    ) {
        registry.registerAll(builder = this, navigator = navigator)
    }

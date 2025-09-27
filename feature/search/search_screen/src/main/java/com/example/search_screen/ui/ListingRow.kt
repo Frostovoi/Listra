@@ -44,23 +44,22 @@ fun ListingRow(
        //
        Spacer(Modifier.width(width = SearchScreenDefaults.ImageTextSpacer))
 
-       Column {
-           Text(
-               text = ad.title,
-               style = MaterialTheme.typography.titleMedium,
-               maxLines = 2,
-               overflow = TextOverflow.Ellipsis
-           )
 
-           Spacer(Modifier.height(height = SearchScreenDefaults.TitleMetaSpacer))
-           Text(text = ad.price, style = MaterialTheme.typography.titleMedium)
-           Spacer(Modifier.height(height = SearchScreenDefaults.TitleMetaSmallSpacer))
-           Text(
-               text = ad.location,
-               style = MaterialTheme.typography.bodyMedium,
-               maxLines = 2,
-               overflow = TextOverflow.Ellipsis)
-       }
+       Text(
+           text = ad.title,
+           style = MaterialTheme.typography.titleMedium,
+           maxLines = 2,
+           overflow = TextOverflow.Ellipsis
+       )
+
+       Spacer(Modifier.height(height = SearchScreenDefaults.TitleMetaSpacer))
+       Text(text = ad.price, style = MaterialTheme.typography.titleMedium)
+       Spacer(Modifier.height(height = SearchScreenDefaults.TitleMetaSmallSpacer))
+       Text(
+           text = ad.location,
+           style = MaterialTheme.typography.bodyMedium,
+           maxLines = 2,
+           overflow = TextOverflow.Ellipsis)
    }
 }
 
@@ -73,7 +72,7 @@ fun ListingRowPreview() {
         ListingRow(
             ad = ListingItem(
                 id = "1",
-                title = "Test",
+                title = "TestTestTestTestTestTestTestTestTest",
                 price = "1000",
                 imageUrl = null,
                 location = "Test",

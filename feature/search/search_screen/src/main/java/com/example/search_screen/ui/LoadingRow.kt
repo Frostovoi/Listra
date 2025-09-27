@@ -3,6 +3,7 @@ package com.example.search_screen.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,23 +25,20 @@ import com.example.search_screen.SearchScreenDefaults
 
 @Composable
 fun LoadingRow() {
-    Row(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(
                 horizontal = SearchScreenDefaults.RowHPad,
                 vertical = SearchScreenDefaults.RowVPad
             )
-            .height(SearchScreenDefaults.RowHeight),
-        verticalAlignment = Alignment.CenterVertically
+            ,
+
     ){
         ImageSkeleton()
-        Spacer(Modifier.width(SearchScreenDefaults.ImageTextSpacer))
-        Column(modifier = Modifier.weight(1f)) {
-            TitleSkeleton()
-            Spacer(Modifier.height(SearchScreenDefaults.TitleMetaSpacer))
-            MetaSkeleton()
-        }
+        Spacer(Modifier.height(SearchScreenDefaults.ImageTextSpacer))
+        TitleSkeleton()
+        Spacer(Modifier.height(SearchScreenDefaults.TitleMetaSpacer))
+        MetaSkeleton()
     }
 }
 
@@ -64,7 +62,8 @@ private fun ImageSkeleton(
     modifier: Modifier = Modifier,
     size: Dp = SearchScreenDefaults.ImageSize
 ) {
-    SkeletonBox(modifier = modifier.size(size))
+    SkeletonBox(modifier = modifier
+        .size(size))
 }
 
 

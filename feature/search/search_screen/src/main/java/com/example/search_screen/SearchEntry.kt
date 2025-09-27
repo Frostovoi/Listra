@@ -1,5 +1,7 @@
 package com.example.search_screen
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.navigation.Destinations
@@ -15,6 +17,7 @@ class SearchEntry @Inject constructor(
     override val featureRoute: String
         get() = Destinations.Search.route
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun register(
         builder: NavGraphBuilder,
         navigator: Navigator
@@ -23,7 +26,8 @@ class SearchEntry @Inject constructor(
             SearchHost(
                 vmFactory = vmFactory,
                 backStackEntry = it,
-                onOpenAd = {}
+                onOpenAd = {},
+                onBack = { navigator.pop() }
             )
 
         }

@@ -53,6 +53,27 @@ fun SearchScreen(
     var expanded by rememberSaveable { mutableStateOf(false) }
     val searchQuery = state.searchQuery
 
+    val handleBack: () -> Unit = {
+        when {
+            // Close hints
+            expanded -> {
+                expanded = false
+                focus.clearFocus()
+            }
+            // Clear query
+            searchQuery.isNotBlank() -> {
+                onSearchQueryChange("")
+                focus.clearFocus()
+            }
+            // Back from the page
+            else -> {
+                onBack()
+            }
+        }
+    }
+
+    BackHandler(enabled = true) { handleBack() }
+
     Scaffold { paddingValues ->
         Column(Modifier
             .fillMaxSize()
@@ -74,7 +95,8 @@ fun SearchScreen(
                             text = stringResource( id = SearchR.string.search_placeholder)
                         )},
                         leadingIcon = {
-                            IconButton(onClick = onBack) {
+                            // Back Button
+                            IconButton(onClick = handleBack) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                     contentDescription = stringResource(
@@ -86,6 +108,7 @@ fun SearchScreen(
                         trailingIcon = {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 if (searchQuery.isNotBlank()) {
+                                    // Clear Button
                                     IconButton(onClick = { onSearchQueryChange("") }) {
                                         Icon(
                                             imageVector = Icons.Default.Clear,
@@ -95,6 +118,7 @@ fun SearchScreen(
                                         )
                                     }
                                 }
+                                // Filters Button
                                 IconButton(onClick = {}) {
                                     Icon(
                                         imageVector = Icons.Filled.FilterList,
@@ -120,7 +144,6 @@ fun SearchScreen(
                 },
                 content = {
                     if (expanded) {
-                        BackHandler { expanded = false }
                         SuggestionsAndHistory(
                             history = state.history,
                             onPick = { text ->
@@ -162,19 +185,12 @@ fun ErrorRowPreview() {
 }
 
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Preview
 @Composable
-fun SearchScreenPreview() {
+fun SearchScreenWithStateLoading() {
     MaterialTheme {
         SearchScreen(
-            state = SearchUiState(
-                searchQuery = "bike",
-                resultAds = MockData.mockListingItems,
-                isEmptyHintVisible = false,
-                recommendations = MockData.mockListingItems,
-                history = listOf("bike", "car")
-            ),
+            state = MockData.previewStateLoading,
             onSearchQueryChange = {},
             onSearch = {},
             onBack = {},
@@ -182,3 +198,51 @@ fun SearchScreenPreview() {
         )
     }
 }
+
+
+@Preview
+@Composable
+fun SearchScreenWithStateError() {
+    MaterialTheme {
+        SearchScreen(
+            state = MockData.previewStateError,
+            onSearchQueryChange = {},
+            onSearch = {},
+            onBack = {},
+            onOpenAd = {}
+        )
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Preview
+@Composable
+fun SearchScreenWithHistory() {
+    MaterialTheme {
+        SearchScreen(
+            state = MockData.previewStateWithHistory,
+            onSearchQueryChange = {},
+            onSearch = {},
+            onBack = {},
+            onOpenAd = {}
+        )
+    }
+}
+
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Preview
+@Composable
+fun SearchScreenWithResults() {
+    MaterialTheme {
+        SearchScreen(
+            state = MockData.previewStateWithResults,
+            onSearchQueryChange = {},
+            onSearch = {},
+            onBack = {},
+            onOpenAd = {}
+        )
+    }
+}
+
+

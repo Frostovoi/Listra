@@ -16,7 +16,8 @@ import com.example.search_screen.ui.SearchScreen
 fun SearchHost(
     vmFactory: ViewModelProvider.Factory,
     backStackEntry: NavBackStackEntry,
-    onOpenAd: (ListingItem) -> Unit
+    onOpenAd: (ListingItem) -> Unit,
+    onBack: () -> Unit
 ) {
     val vm: SearchViewModel = viewModel(
         viewModelStoreOwner = backStackEntry,
@@ -25,25 +26,26 @@ fun SearchHost(
     val state = vm.uiState.collectAsState().value
 
 
-    SearchScreen(
-        state = SearchUiState(
-            searchQuery = "bike",
-            resultAds = MockData.mockListingItems,
-            isEmptyHintVisible = false,
-            recommendations = MockData.mockListingRecs,
-            history = listOf("bike", "car")
-        ),
-        onSearchQueryChange = {},
-        onSearch = {},
-        onBack = {},
-        onOpenAd = {}
-    )
-
 //    SearchScreen(
-//        state = state,
-//        onSearchQueryChange = vm::onSearchQueryChange,
-//        onOpenAd = onOpenAd,
+//        state = SearchUiState(
+//            isLoading = true,
+//            searchQuery = "bike",
+//            resultAds = MockData.mockListingItems,
+//            isEmptyHintVisible = false,
+//            recommendations = MockData.mockListingRecs,
+//            history = listOf("bike", "car")
+//        ),
+//        onSearchQueryChange = {},
 //        onSearch = {},
-//        onBack = {}
+//        onBack = onBack,
+//        onOpenAd = {}
 //    )
+
+    SearchScreen(
+        state = state,
+        onSearchQueryChange = vm::onSearchQueryChange,
+        onOpenAd = onOpenAd,
+        onSearch = vm::onSearchSubmit,
+        onBack = onBack
+    )
 }

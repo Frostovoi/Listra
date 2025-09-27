@@ -54,7 +54,7 @@ object MockData {
         ListingItem(
             id = "5",
             title = "Горный велосипед Specialized Rockhopper",
-            price = "900 €",
+            price = "900€",
             imageUrl = "https://picsum.photos/200/301",
             location = "Munich",
             status = ListingStatus.ARCHIVED,

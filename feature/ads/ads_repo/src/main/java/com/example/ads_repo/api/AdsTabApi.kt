@@ -9,7 +9,4 @@ interface AdsTabApi {
     @GET("/{listingTab}")
     suspend fun getAds(@Path("listingTab") listingTab: String): AdsTabDto
 
-
-    @GET("connect")
-    suspend fun connect(): String
 }

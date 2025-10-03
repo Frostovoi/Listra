@@ -9,6 +9,7 @@ import com.example.listra.MainActivity
 import com.example.network.di.NetworkModule
 import com.example.search_repo.di.SearchNetworkModule
 import com.example.search_repo.di.SearchRepositoryModule
+import com.example.search_screen.di.SearchDataStoreModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,8 +17,12 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        NavigatorModule::class, FeatureModulesAggregator::class, AdsRepositoryModule::class, SearchRepositoryModule::class,
-        NetworkModule::class, AdsNetworkModule::class, SearchNetworkModule::class, ViewModelFactoryModule::class]
+        NavigatorModule::class,
+        FeatureModulesAggregator::class,
+        AdsRepositoryModule::class, SearchRepositoryModule::class,
+        NetworkModule::class, AdsNetworkModule::class,
+        SearchNetworkModule::class, ViewModelFactoryModule::class, SearchDataStoreModule::class
+    ]
 )
 interface AppComponent {
 

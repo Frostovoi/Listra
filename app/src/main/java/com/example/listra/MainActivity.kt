@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.rememberNavController
+import com.example.listra.FeatureRegistry
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {

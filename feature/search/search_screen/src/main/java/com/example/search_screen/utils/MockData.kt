@@ -1,4 +1,4 @@
-package com.example.search_screen
+package com.example.search_screen.utils
 
 import android.os.Build
 import androidx.annotation.RequiresApi

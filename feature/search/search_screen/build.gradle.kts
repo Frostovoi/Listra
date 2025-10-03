@@ -82,6 +82,17 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewModelCompose)
     implementation(libs.androidx.lifecycle.lifecycle.viewmodel.ktx)
 
+    // Paging
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
+    // Coil
+    implementation(libs.coil.compose)
+
+
     implementation(project(":core:navigation"))
     implementation(project(":core:api"))
     implementation(project(":core:network"))

@@ -80,6 +80,9 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
 
     //Compose
     implementation(libs.androidx.navigation.compose)

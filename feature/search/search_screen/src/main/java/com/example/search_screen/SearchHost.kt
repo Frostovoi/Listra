@@ -4,7 +4,9 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import com.example.api.models.ListingItem
@@ -23,29 +25,16 @@ fun SearchHost(
         viewModelStoreOwner = backStackEntry,
         factory = vmFactory
     )
-    val state = vm.uiState.collectAsState().value
 
-
-//    SearchScreen(
-//        state = SearchUiState(
-//            isLoading = true,
-//            searchQuery = "bike",
-//            resultAds = MockData.mockListingItems,
-//            isEmptyHintVisible = false,
-//            recommendations = MockData.mockListingRecs,
-//            history = listOf("bike", "car")
-//        ),
-//        onSearchQueryChange = {},
-//        onSearch = {},
-//        onBack = onBack,
-//        onOpenAd = {}
-//    )
+    val ui by vm.uiState.collectAsStateWithLifecycle()
+    val history by vm.history.collectAsStateWithLifecycle()
 
     SearchScreen(
-        state = state,
+        state = ui.copy(history = history),
         onSearchQueryChange = vm::onSearchQueryChange,
-        onOpenAd = onOpenAd,
         onSearch = vm::onSearchSubmit,
-        onBack = onBack
+        onBack = onBack,
+        onOpenAd = onOpenAd,
+        pagingFlow = vm.pagingFlow
     )
 }

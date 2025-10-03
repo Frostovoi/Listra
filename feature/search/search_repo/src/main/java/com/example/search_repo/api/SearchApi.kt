@@ -8,7 +8,7 @@ interface SearchApi {
 
     @GET("/search")
     suspend fun searchAds(
-        @Query("query") query: String,
+        @Query("q") query: String,
         @Query("page") page: Int,
         @Query("page_size") pageSize: Int
     ): SearchResponseDto

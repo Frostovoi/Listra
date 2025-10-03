@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.example.navigation.Destinations
+import com.example.listra.FeatureRegistry
 import com.example.navigation.Navigator
 
 @Composable

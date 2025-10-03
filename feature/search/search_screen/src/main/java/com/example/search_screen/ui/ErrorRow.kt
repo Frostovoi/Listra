@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.example.search_screen.SearchScreenDefaults
+import com.example.search_screen.utils.SearchScreenDefaults
 
 @Composable
 fun ErrorRow(

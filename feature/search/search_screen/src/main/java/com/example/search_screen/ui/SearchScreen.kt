@@ -35,9 +35,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.paging.PagingData
 import com.example.api.models.ListingItem
 import com.example.api.models.states.SearchUiState
-import com.example.search_screen.MockData
+import com.example.search_screen.utils.MockData
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,7 +50,8 @@ fun SearchScreen(
     onSearchQueryChange: (String) -> Unit,
     onSearch: () -> Unit,
     onBack: () -> Unit,
-    onOpenAd: (ListingItem) -> Unit
+    onOpenAd: (ListingItem) -> Unit,
+    pagingFlow: Flow<PagingData<ListingItem>>
 ) {
     val focus = LocalFocusManager.current
     var expanded by rememberSaveable { mutableStateOf(false) }
@@ -157,19 +161,10 @@ fun SearchScreen(
                     }
                 }
             )
-            ContentList(
-                state = state,
+
+            ContentListPaging(
                 onOpenAd = onOpenAd,
-                onRetry = {
-                    onSearch()
-                    focus.clearFocus()
-                },
-                onQuickQuery = { quickQuery ->
-                    onSearchQueryChange(quickQuery)
-                    onSearch()
-                    expanded = false
-                    focus.clearFocus()
-                }
+                pagingFlow = pagingFlow
             )
         }
     }
@@ -194,7 +189,8 @@ fun SearchScreenWithStateLoading() {
             onSearchQueryChange = {},
             onSearch = {},
             onBack = {},
-            onOpenAd = {}
+            onOpenAd = {},
+            pagingFlow = emptyFlow()
         )
     }
 }
@@ -209,7 +205,8 @@ fun SearchScreenWithStateError() {
             onSearchQueryChange = {},
             onSearch = {},
             onBack = {},
-            onOpenAd = {}
+            onOpenAd = {},
+            pagingFlow = emptyFlow()
         )
     }
 }
@@ -224,7 +221,8 @@ fun SearchScreenWithHistory() {
             onSearchQueryChange = {},
             onSearch = {},
             onBack = {},
-            onOpenAd = {}
+            onOpenAd = {},
+            pagingFlow = emptyFlow()
         )
     }
 }
@@ -240,7 +238,8 @@ fun SearchScreenWithResults() {
             onSearchQueryChange = {},
             onSearch = {},
             onBack = {},
-            onOpenAd = {}
+            onOpenAd = {},
+            pagingFlow = emptyFlow()
         )
     }
 }

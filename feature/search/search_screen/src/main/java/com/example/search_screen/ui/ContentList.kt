@@ -24,8 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.api.models.ListingItem
 import com.example.api.models.states.SearchUiState
-import com.example.search_screen.MockData
-import com.example.search_screen.SearchScreenDefaults
+import com.example.search_screen.utils.MockData
+import com.example.search_screen.utils.SearchScreenDefaults
 
 
 @Composable

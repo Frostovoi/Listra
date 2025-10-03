@@ -15,5 +15,4 @@ class AppNavigator @Inject constructor() : Navigator {
     override fun pop() {
         controller.popBackStack()
     }
-
 }

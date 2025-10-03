@@ -21,7 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.search_screen.SearchScreenDefaults
+import com.example.search_screen.utils.SearchScreenDefaults
 
 @Composable
 fun SuggestionsAndHistory(

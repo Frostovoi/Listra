@@ -25,4 +25,7 @@
     <string name="search_error_prefix">Error: %1$s</string>
     <string name="search_retry">Retry</string>
 
+    <!-- Preferences -->
+    <string name="search_preferences_key">search_history</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.search_screen
+package com.example.search_screen.utils
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.Dp
@@ -10,9 +10,18 @@ internal object SearchScreenDefaults {
     const val TITLE_WIDTH_FRACTION: Float = 0.8f
     const val META_WIDTH_FRACTION: Float = 0.4f
 
+    const val DEBOUNCE_TIME: Long = 500L
+    const val PAGE_SIZE: Int = 20
+    const val FILTER_LENGTH: Int = 2
+    const val GRID_COLUMNS = 2
+
     const val CT_HEADER  = "header"
     const val CT_LISTING = "listing"
 
+    const val PREF_KEY_HISTORY = "search_history"
+
+
+    val GridPadding: Dp = 12.dp
     val ContentBottomPadding: Dp = 24.dp
     val SectionHeaderHPad: Dp = 16.dp
     val SectionHeaderVPad: Dp = 12.dp
@@ -20,6 +29,7 @@ internal object SearchScreenDefaults {
     val RowVPad: Dp = 12.dp
     val RowHeight: Dp = 72.dp
     val ImageSize: Dp = 144.dp
+    val TitleUnderImageWidth = 144.dp
     val ImageTextSpacer: Dp = 12.dp
     val TitleMetaSpacer: Dp = 8.dp
     val TitleMetaSmallSpacer: Dp = 4.dp
@@ -33,4 +43,5 @@ internal object SearchScreenDefaults {
     val AssistRowHPad: Dp = 12.dp
     val AssistRowVPad: Dp = 8.dp
     val AssistChipStartGap: Dp = 8.dp
+
 }

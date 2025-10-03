@@ -6,6 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.api.models.ListingItem
+import com.example.api.models.Page
 import com.example.api.repository.SearchRepository
 import com.example.network.utils.Result
 import com.example.network.utils.runOperationCatching
@@ -20,11 +21,16 @@ class SearchRepositoryImpl @Inject constructor(private val searchApi: SearchApi)
         query: String,
         page: Int,
         pageSize: Int
-    ): Result<List<ListingItem>, Throwable> {
+    ): Result<Page<ListingItem>, Throwable> {
         return runOperationCatching {
-            searchApi
-                .searchAds(query, page, pageSize)
-                .toSearchResponseList()
+            val dto = searchApi.searchAds(query, page, pageSize)
+
+            Page(
+                items = dto.toSearchResponseList(),
+                total = dto.total,
+                page = dto.page,
+                pageSize = dto.pageSize
+            )
         }
     }
 }

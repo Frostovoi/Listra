@@ -32,9 +32,9 @@ class SearchPagingSource(
         val page = params.key ?: 1
 
         searchRepository.searchAds(query, page, pageSize).mapSuccess { result ->
-            val isLast = result.size < pageSize
+            val isLast = result.items.isEmpty() || (result.page * result.pageSize) >= result.total
             LoadResult.Page(
-                data = result,
+                data = result.items,
                 prevKey = if (page == 1) null else page - 1,
                 nextKey = if (isLast) null else page + 1
             )

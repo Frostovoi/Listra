@@ -30,7 +30,8 @@ fun SearchScreenWithStateLoading() {
             onSearch = {},
             onBack = {},
             onOpenAd = {},
-            pagingFlow = emptyFlow()
+            pagingFlow = emptyFlow(),
+            onClearHistory = {}
         )
     }
 }
@@ -46,7 +47,8 @@ fun SearchScreenWithStateError() {
             onSearch = {},
             onBack = {},
             onOpenAd = {},
-            pagingFlow = emptyFlow()
+            pagingFlow = emptyFlow(),
+            onClearHistory = {}
         )
     }
 }
@@ -62,7 +64,8 @@ fun SearchScreenWithHistory() {
             onSearch = {},
             onBack = {},
             onOpenAd = {},
-            pagingFlow = emptyFlow()
+            pagingFlow = emptyFlow(),
+            onClearHistory = {}
         )
     }
 }
@@ -79,7 +82,8 @@ fun SearchScreenWithResults() {
             onSearch = {},
             onBack = {},
             onOpenAd = {},
-            pagingFlow = emptyFlow()
+            pagingFlow = emptyFlow(),
+            onClearHistory = {}
         )
     }
 }

@@ -90,7 +90,6 @@ class SearchViewModel @Inject constructor(
         searchRequests.tryEmit(query)
         _uiState.update { it.copy(isEmptyHintVisible = false) }
 
-
     }
 
     fun onSearchQueryChange(query: String) {
@@ -103,5 +102,11 @@ class SearchViewModel @Inject constructor(
         }
 
         searchRequests.tryEmit(query)
+    }
+
+    fun onClearHistory() {
+        viewModelScope.launch {
+            historyStore.clear()
+        }
     }
 }

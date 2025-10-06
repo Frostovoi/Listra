@@ -29,9 +29,9 @@ class SearchHistoryStore @Inject constructor(
         val clean = query.trim().trim()
         if (clean.isEmpty()) return
         dataStore.edit { prefs ->
-            val current = prefs[KEY]?.let { runCatching {
-                json.decodeFromString<List<String>>(it)
-            }.getOrNull() }.orEmpty()
+            val current = prefs[KEY]?.let {
+                runCatching { json.decodeFromString<List<String>>(it) }.getOrNull()
+            }.orEmpty()
 
             val updated = (listOf(clean) + current).distinct().take(max)
             prefs[KEY] = json.encodeToString(updated)

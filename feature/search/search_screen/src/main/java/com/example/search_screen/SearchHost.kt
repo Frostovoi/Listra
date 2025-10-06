@@ -36,6 +36,7 @@ fun SearchHost(
         onSearch = vm::onSearchSubmit,
         onBack = onBack,
         onOpenAd = onOpenAd,
-        pagingFlow = vm.pagingFlow
+        pagingFlow = vm.pagingFlow,
+        onClearHistory = vm::onClearHistory
     )
 }

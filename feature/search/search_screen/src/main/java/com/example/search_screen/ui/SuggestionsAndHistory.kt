@@ -43,6 +43,8 @@ fun SuggestionsAndHistory(
                     vertical = SearchScreenDefaults.SuggestionLabelVPad
                 )
             )
+
+            // History elements
             history.forEach { historyItem ->
                 Row(
                     modifier = Modifier
@@ -59,6 +61,8 @@ fun SuggestionsAndHistory(
                     Text(text = historyItem, style = MaterialTheme.typography.bodyLarge)
                 }
             }
+
+            // "Clear History" button
             TextButton(
                 onClick = onClearHistory,
                 modifier = Modifier.padding(horizontal = SearchScreenDefaults.AssistRowHPad)

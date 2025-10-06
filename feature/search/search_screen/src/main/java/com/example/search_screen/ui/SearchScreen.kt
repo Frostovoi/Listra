@@ -49,6 +49,7 @@ fun SearchScreen(
     state: SearchUiState,
     onSearchQueryChange: (String) -> Unit,
     onSearch: () -> Unit,
+    onClearHistory: () -> Unit,
     onBack: () -> Unit,
     onOpenAd: (ListingItem) -> Unit,
     pagingFlow: Flow<PagingData<ListingItem>>
@@ -157,7 +158,7 @@ fun SearchScreen(
                                 expanded = false
                                 focus.clearFocus()
                             },
-                            onClearHistory = { }
+                            onClearHistory = onClearHistory
                         )
                     }
                 }

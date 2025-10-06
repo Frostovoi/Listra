@@ -49,7 +49,7 @@ fun ContentList(
             item(key = "assist_chips", contentType = "chips") {
                 AssistChipRow(
                     onQuery = onQuickQuery,
-                    suggestions = state.recommendations.map{it.title}
+                    suggestions = state.recommendations.map{ it.title }
                 )
                 EmptyHint(text = stringResource(id = SearchR.string.search_empty_hint_before))
             }

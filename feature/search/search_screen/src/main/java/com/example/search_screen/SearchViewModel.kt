@@ -1,6 +1,8 @@
 package com.example.search_screen
 
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -10,6 +12,7 @@ import com.example.api.models.states.SearchUiState
 import com.example.api.repository.SearchRepository
 import com.example.search_screen.history.SearchHistoryStore
 import com.example.search_screen.paging.asPager
+import com.example.search_screen.utils.MockData
 import com.example.search_screen.utils.SearchScreenDefaults as SSD
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -23,17 +26,19 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.time.debounce
 import javax.inject.Inject
-
+@RequiresApi(Build.VERSION_CODES.O)
 class SearchViewModel @Inject constructor(
     private val repository: SearchRepository,
     private val historyStore: SearchHistoryStore
 ): ViewModel() {
+
 
     private val _uiState = MutableStateFlow(SearchUiState())
     val uiState: StateFlow<SearchUiState>
@@ -58,7 +63,14 @@ class SearchViewModel @Inject constructor(
             .map(String::trim)
             .filter { it.length >= SSD.FILTER_LENGTH }
             .distinctUntilChanged()
-            .flatMapLatest { q -> repository.asPager(q, pageSize = SSD.PAGE_SIZE) }
+            .flatMapLatest { q ->
+                if (q.isBlank()){
+                    flowOf(PagingData.empty())
+                }
+                else {
+                    repository.asPager(q, pageSize = SSD.PAGE_SIZE)
+                }
+            }
             .cachedIn(viewModelScope)
 
 

@@ -17,8 +17,11 @@ internal object SearchScreenDefaults {
 
     const val CT_HEADER  = "header"
     const val CT_LISTING = "listing"
+    const val CT_SKELETON = "skeleton"
 
     const val PREF_KEY_HISTORY = "search_history"
+    const val KEY_RECOMMENDATIONS = "recommendations_header"
+    const val KEY_RESULTS = "result_header"
 
 
     val GridPadding: Dp = 12.dp

@@ -71,7 +71,8 @@ fun SearchScreen(
             }
             // Back from the page
             else -> {
-                onBack()
+                Unit
+//                onBack() #TODO
             }
         }
     }
@@ -163,85 +164,18 @@ fun SearchScreen(
             )
 
             ContentListPaging(
+                state = state,
                 onOpenAd = onOpenAd,
-                pagingFlow = pagingFlow
+                pagingFlow = pagingFlow,
+                onQuickQuery = { query ->
+                    onSearchQueryChange(query)
+                    onSearch
+                }
             )
         }
     }
 }
 
 
-@Preview
-@Composable
-fun ErrorRowPreview() {
-    MaterialTheme {
-        ErrorRow(message = "Ошибка", onRetry = {})
-    }
-}
-
-
-@Preview
-@Composable
-fun SearchScreenWithStateLoading() {
-    MaterialTheme {
-        SearchScreen(
-            state = MockData.previewStateLoading,
-            onSearchQueryChange = {},
-            onSearch = {},
-            onBack = {},
-            onOpenAd = {},
-            pagingFlow = emptyFlow()
-        )
-    }
-}
-
-
-@Preview
-@Composable
-fun SearchScreenWithStateError() {
-    MaterialTheme {
-        SearchScreen(
-            state = MockData.previewStateError,
-            onSearchQueryChange = {},
-            onSearch = {},
-            onBack = {},
-            onOpenAd = {},
-            pagingFlow = emptyFlow()
-        )
-    }
-}
-
-@RequiresApi(Build.VERSION_CODES.O)
-@Preview
-@Composable
-fun SearchScreenWithHistory() {
-    MaterialTheme {
-        SearchScreen(
-            state = MockData.previewStateWithHistory,
-            onSearchQueryChange = {},
-            onSearch = {},
-            onBack = {},
-            onOpenAd = {},
-            pagingFlow = emptyFlow()
-        )
-    }
-}
-
-
-@RequiresApi(Build.VERSION_CODES.O)
-@Preview
-@Composable
-fun SearchScreenWithResults() {
-    MaterialTheme {
-        SearchScreen(
-            state = MockData.previewStateWithResults,
-            onSearchQueryChange = {},
-            onSearch = {},
-            onBack = {},
-            onOpenAd = {},
-            pagingFlow = emptyFlow()
-        )
-    }
-}
 
 

@@ -29,6 +29,7 @@ fun SearchHost(
     val ui by vm.uiState.collectAsStateWithLifecycle()
     val history by vm.history.collectAsStateWithLifecycle()
 
+
     SearchScreen(
         state = ui.copy(history = history),
         onSearchQueryChange = vm::onSearchQueryChange,

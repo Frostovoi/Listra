@@ -13,7 +13,7 @@ object MockData {
     val mockListingItems = listOf(
         ListingItem(
             id = "1",
-            title = "Шоссейный велосипед Trek Domane",
+            title = "Шоссейный",
             price = "1200 €",
             imageUrl = "https://picsum.photos/200/300",
             location = "Berlin",
@@ -22,7 +22,7 @@ object MockData {
         ),
         ListingItem(
             id = "2",
-            title = "Горный велосипед Specialized Rockhopper",
+            title = "Горный",
             price = "900 €",
             imageUrl = "https://picsum.photos/200/301",
             location = "Munich",
@@ -31,7 +31,7 @@ object MockData {
         ),
         ListingItem(
             id = "3",
-            title = "Городской велосипед Cannondale Quick",
+            title = "Городской",
             price = "700 €",
             imageUrl = null, // без картинки
             location = "Hamburg",
@@ -43,8 +43,8 @@ object MockData {
     @RequiresApi(Build.VERSION_CODES.O)
     val mockListingRecs = listOf(
         ListingItem(
-            id = "4",
-            title = "Шоссейный велосипед Trek Domane",
+            id = "51",
+            title = "велосипед",
             price = "1200 €",
             imageUrl = "https://picsum.photos/200/300",
             location = "Berlin",
@@ -52,8 +52,8 @@ object MockData {
             date = LocalDate.now().minusDays(1)
         ),
         ListingItem(
-            id = "5",
-            title = "Горный велосипед Specialized Rockhopper",
+            id = "52",
+            title = "Горный велосипед",
             price = "900€",
             imageUrl = "https://picsum.photos/200/301",
             location = "Munich",
@@ -61,8 +61,8 @@ object MockData {
             date = LocalDate.now().minusDays(10)
         ),
         ListingItem(
-            id = "6",
-            title = "Городской велосипед Cannondale Quick",
+            id = "53",
+            title = "Городской велосипед",
             price = "700 €",
             imageUrl = null, // без картинки
             location = "Hamburg",

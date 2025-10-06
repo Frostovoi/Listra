@@ -8,11 +8,14 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import com.example.api.models.ListingItem
 import com.example.api.models.ListingTab
 import com.example.my_ads.list.AdsList
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 
 @Composable
@@ -32,13 +35,24 @@ fun MyAdsTabs(
     val pagerState = rememberPagerState(initialPage = selectedIndex, pageCount = { tabs.size })
     val scope = rememberCoroutineScope()
 
+    LaunchedEffect(pagerState) {
+        snapshotFlow { pagerState.currentPage }
+            .distinctUntilChanged()
+            .collect{ page -> onTabChange(tabs[page]) }
+    }
+
+    LaunchedEffect(selectedIndex) {
+        if (pagerState.currentPage != selectedIndex) {
+            pagerState.animateScrollToPage(selectedIndex)
+        }
+    }
+
     Column {
         TabRow(selectedTabIndex = selectedIndex) {
             tabs.forEachIndexed { index, tab ->
                 Tab(
                     selected = index == selectedIndex,
                     onClick = {
-                        onTabChange(tab)
                         scope.launch { pagerState.animateScrollToPage(index) }
                     },
                     text = { labels[tab]?.let { Text(it) } }
@@ -52,7 +66,6 @@ fun MyAdsTabs(
                 .fillMaxWidth()
                 .weight(1f)
         ) { page ->
-            onTabChange(tabs[page])
             AdsList(ads = ads, onOpenAd = onOpenAd)}
     }
 }

@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.api.models.ListingItem
 import com.example.api.models.ListingStatus
 import com.example.api.models.ListingTab
-import com.example.api.models.MyAdsUiState
+import com.example.api.models.states.MyAdsUiState
 import com.example.my_ads.list.AdsList
 import com.example.my_ads.tabs.MyAdsTabs
 import java.time.LocalDate

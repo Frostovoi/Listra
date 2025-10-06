@@ -1,4 +1,7 @@
-package com.example.api.models
+package com.example.api.models.states
+
+import com.example.api.models.ListingItem
+import com.example.api.models.ListingTab
 
 data class MyAdsUiState(
     val currentTab: ListingTab = ListingTab.Active,

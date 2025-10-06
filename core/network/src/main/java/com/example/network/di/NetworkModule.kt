@@ -16,6 +16,15 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    fun provideJson(): Json = Json {
+        ignoreUnknownKeys = true
+        explicitNulls = false
+        isLenient = true
+    }
+
+
+    @Provides
+    @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         .build()
 
@@ -26,12 +35,16 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, @Named("BaseUrl") baseUrl: String): Retrofit =
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        @Named("BaseUrl") baseUrl: String,
+        json: Json
+    ): Retrofit =
         Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(
-                Json.asConverterFactory(
+                json.asConverterFactory(
                     "application/json; charset=UTF8".toMediaType()))
             .build()
 }

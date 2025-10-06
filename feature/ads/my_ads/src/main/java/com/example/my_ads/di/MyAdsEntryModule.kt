@@ -8,10 +8,9 @@ import dagger.multibindings.IntoMap
 import dagger.multibindings.StringKey
 
 @Module
-abstract class MyAdsEntryModule {
-
+interface MyAdsEntryModule {
     @Binds
     @IntoMap
     @StringKey("my_ads")
-    abstract fun bindEntry(entry: MyAdsEntry) : FeatureEntry
+    fun bindEntry(entry: MyAdsEntry) : FeatureEntry
 }

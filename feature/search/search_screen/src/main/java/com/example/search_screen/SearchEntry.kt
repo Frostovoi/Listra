@@ -29,7 +29,6 @@ class SearchEntry @Inject constructor(
                 onOpenAd = {},
                 onBack = { navigator.pop() }
             )
-
         }
     }
 

@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.time.debounce
 import javax.inject.Inject
 @RequiresApi(Build.VERSION_CODES.O)
-class SearchViewModel @Inject constructor(
+class  SearchViewModel @Inject constructor(
     private val repository: SearchRepository,
     private val historyStore: SearchHistoryStore
 ): ViewModel() {

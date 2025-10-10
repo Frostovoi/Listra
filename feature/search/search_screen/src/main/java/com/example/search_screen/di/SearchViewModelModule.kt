@@ -13,5 +13,4 @@ interface SearchViewModelModule {
     @IntoMap
     @ViewModelKey(SearchViewModel::class)
     fun bindSearchViewModel(viewModel: SearchViewModel): ViewModel
-
 }

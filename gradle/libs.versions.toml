@@ -33,6 +33,7 @@ lifecycleViewmodelDesktop = "2.9.3"
 paging = "3.3.2"
 datastore = "1.1.1"
 coil = "2.7.0"
+foundation = "1.9.2"
 
 
 [libraries]
@@ -93,6 +94,7 @@ androidx-datastore-preferences = { group = "androidx.datastore", name = "datasto
 # Coil
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 
 [bundles]
 coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]

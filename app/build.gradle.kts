@@ -61,8 +61,10 @@ dependencies {
     implementation(project(":feature:ads:post_ad"))
     implementation(project(":feature:ads:ad_details"))
     implementation(project(":feature:profile:profile"))
-    implementation(project(":feature:authentication:auth"))
     implementation(project(":feature:search:search_screen"))
+    implementation(project(":feature:authentication:login"))
+    implementation(project(":feature:authentication:register"))
+    implementation(project(":feature:authentication:reset"))
 
 
     val composeBom = platform(libs.androidx.compose.bom)

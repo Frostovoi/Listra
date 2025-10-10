@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -40,4 +42,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    // Dagger2
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+
+    // Retrofit
+    implementation(libs.bundles.retrofit.kotlinx)
+
+    implementation(project(":core:api"))
+    implementation(project(":core:network"))
 }

@@ -71,9 +71,7 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-
     implementation(libs.androidx.compose.material.iconsExtended)
-
 
     // Coroutines
     implementation(libs.bundles.coroutines)

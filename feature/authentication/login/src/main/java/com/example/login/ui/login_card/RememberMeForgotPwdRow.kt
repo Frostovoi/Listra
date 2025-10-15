@@ -10,7 +10,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -20,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
 import com.example.api.states.LoginUiState
 import com.example.login.LoginEvent
 import com.example.login.utils.LoginScreenDefaults as LSD
@@ -38,9 +43,9 @@ fun RememberMeForgotPwdRow(
         val checked = state.rememberMe
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.clickable(
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
+            modifier = Modifier.toggleable(
+                value = checked,
+                role = Role.Checkbox
             ) { onEvent(LoginEvent.RememberMeChanged(!checked)) }
         ) {
             Box(
@@ -58,7 +63,15 @@ fun RememberMeForgotPwdRow(
                             )
                         } else Color.Transparent
                     )
-            )
+            ) {
+                if (checked) {
+                    Icon(
+                        imageVector = Icons.Rounded.Check,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
 
             Spacer(Modifier.size(LSD.RememberMeBoxTextSpacer))
 

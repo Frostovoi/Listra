@@ -3,14 +3,12 @@ package com.example.search_screen
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import com.example.api.models.ListingItem
-import com.example.api.models.states.SearchUiState
 import com.example.search_screen.ui.SearchScreen
 
 @RequiresApi(Build.VERSION_CODES.O)

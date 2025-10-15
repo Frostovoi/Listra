@@ -1,4 +1,4 @@
-package com.example.api.models.states
+package com.example.api.states
 
 import com.example.api.models.ListingItem
 

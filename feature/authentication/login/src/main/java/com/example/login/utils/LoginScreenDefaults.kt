@@ -21,6 +21,9 @@ internal object LoginScreenDefaults {
     const val EMAIL_PLACEHOLDER = "you@mail.com"
     const val PASSWORD_PLACEHOLDER = "••••••••"
 
+    const val TITLE_TEXT = "Welcome Back"
+    const val SUBTITLE_TEXT = "Sign in to continue"
+
     const val REMEMBER_ME_TEXT = "Remember me"
     const val FORGOT_PASSWORD_TEXT = "Forgot password?"
     const val SIGN_IN_TEXT = "Sign in"
@@ -29,6 +32,12 @@ internal object LoginScreenDefaults {
     const val NO_ACCOUNT_TEXT = "No account yet? "
     const val SIGN_UP_TEXT = "Sign up"
     const val LOADING_TEXT = "Signing in…"
+    const val BLANK_EMAIL_TEXT = "Email is required"
+    const val INVALID_EMAIL_TEXT = "Invalid email"
+    const val SHORT_PASSWORD_TEXT = "At least 8 characters"
+    const val UNEXPECTED_ERROR_TEXT = "Unexpected error"
+    const val LOGIN_FAILED_TEXT = "Login failed"
+    const val GOOGLE_ERROR_TEXT = "Google sign in failed"
 
     const val DIVIDER_WEIGHT = 1f
 

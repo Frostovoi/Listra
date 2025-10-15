@@ -22,7 +22,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemContentType
 import androidx.paging.compose.itemKey
 import com.example.api.models.ListingItem
-import com.example.api.models.states.SearchUiState
+import com.example.api.states.SearchUiState
 import com.example.search_screen.utils.SearchScreenDefaults
 import kotlinx.coroutines.flow.Flow
 import com.example.search_screen.R as SearchR

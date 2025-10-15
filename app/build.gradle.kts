@@ -53,6 +53,8 @@ dependencies {
     implementation(project(":core:api"))
     implementation(project(":core:network"))
     implementation(project(":core:di"))
+    implementation(project(":core:identity-google"))
+    implementation(project(":core:identity-api"))
 
     implementation(project(":feature:ads:ads_repo"))
     implementation(project(":feature:search:search_repo"))
@@ -65,6 +67,9 @@ dependencies {
     implementation(project(":feature:authentication:login"))
     implementation(project(":feature:authentication:register"))
     implementation(project(":feature:authentication:reset"))
+    implementation(project(":feature:authentication:auth_repo"))
+    implementation(libs.googleid)
+    implementation(libs.play.services.auth)
 
 
     val composeBom = platform(libs.androidx.compose.bom)

@@ -83,6 +83,7 @@ dependencies {
     implementation(project(":core:api"))
     implementation(project(":core:network"))
     implementation(project(":core:di"))
+    implementation(project(":core:identity-api"))
 
 
 }

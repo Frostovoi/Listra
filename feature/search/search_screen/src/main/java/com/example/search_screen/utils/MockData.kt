@@ -4,7 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.api.models.ListingItem
 import com.example.api.models.ListingStatus
-import com.example.api.models.states.SearchUiState
+import com.example.api.states.SearchUiState
 import java.time.LocalDate
 
 object MockData {

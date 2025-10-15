@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.ads_repo.di.AdsNetworkModule
 import com.example.ads_repo.di.AdsRepositoryModule
 import com.example.di.di.ViewModelFactoryModule
+import com.example.identity_google.di.GoogleCredentialModule
 import com.example.listra.App
 import com.example.listra.MainActivity
 import com.example.network.di.NetworkModule
@@ -19,9 +20,11 @@ import javax.inject.Singleton
     modules = [
         NavigatorModule::class,
         FeatureModulesAggregator::class,
-        AdsRepositoryModule::class, SearchRepositoryModule::class,
-        NetworkModule::class, AdsNetworkModule::class,
-        SearchNetworkModule::class, ViewModelFactoryModule::class, SearchDataStoreModule::class
+        NetworkModule::class,
+        ViewModelFactoryModule::class,
+        SearchDataStoreModule::class,
+        RepositoryModulesAggregator::class,
+        GoogleCredentialModule::class
     ]
 )
 interface AppComponent {

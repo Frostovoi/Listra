@@ -2,7 +2,7 @@ package com.example.api.repository
 
 import com.example.api.models.ListingItem
 import com.example.api.models.Page
-import com.example.network.utils.Result
+import com.example.api.utils.Result
 
 interface SearchRepository {
 

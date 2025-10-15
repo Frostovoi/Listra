@@ -2,16 +2,12 @@ package com.example.search_repo
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import com.example.api.models.ListingItem
 import com.example.api.models.Page
 import com.example.api.repository.SearchRepository
-import com.example.network.utils.Result
-import com.example.network.utils.runOperationCatching
+import com.example.api.utils.Result
+import com.example.api.utils.runOperationCatching
 import com.example.search_repo.api.SearchApi
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class SearchRepositoryImpl @Inject constructor(private val searchApi: SearchApi): SearchRepository {

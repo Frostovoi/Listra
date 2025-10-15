@@ -12,7 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.api.models.states.LoginUiState
+import com.example.api.states.LoginUiState
 import com.example.login.LoginEvent
 import com.example.login.utils.LoginScreenDefaults as LSD
 
@@ -65,7 +65,9 @@ fun LoginCard(
             OrDivider()
 
             SocialButton(
-                onGoogle = { onEvent(LoginEvent.GoogleClick) }
+                onGoogle = {
+                    onEvent(LoginEvent.GoogleClick)
+                }
             )
 
             Spacer(Modifier.height(LSD.SocialSignUpSpacer))

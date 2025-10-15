@@ -9,8 +9,8 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.api.models.ListingItem
 import com.example.api.repository.SearchRepository
-import com.example.network.utils.getOrThrow
-import com.example.network.utils.mapSuccess
+import com.example.api.utils.getOrThrow
+import com.example.api.utils.mapSuccess
 import kotlinx.coroutines.flow.Flow
 
 class SearchPagingSource(

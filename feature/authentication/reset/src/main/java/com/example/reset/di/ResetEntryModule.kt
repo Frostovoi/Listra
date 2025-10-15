@@ -11,6 +11,6 @@ import dagger.multibindings.StringKey
 interface ResetEntryModule {
     @Binds
     @IntoMap
-    @StringKey("register")
+    @StringKey("reset")
     fun bindEntry(entry: ResetEntry) : FeatureEntry
 }

@@ -1,4 +1,4 @@
-package com.example.network.utils
+package com.example.api.utils
 
 import java.util.concurrent.CancellationException
 

@@ -1,4 +1,4 @@
-package com.example.network.utils
+package com.example.api.utils
 
 sealed interface AdsError {
     data object Network: AdsError

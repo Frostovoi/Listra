@@ -10,5 +10,5 @@ import javax.inject.Singleton
 object SearchNetworkModule {
     @Provides
     @Singleton
-    fun provideAdsApi(retrofit: Retrofit): SearchApi = retrofit.create(SearchApi::class.java)
+    fun provideSearchApi(retrofit: Retrofit): SearchApi = retrofit.create(SearchApi::class.java)
 }

@@ -8,11 +8,10 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.api.models.ListingItem
-import com.example.api.models.states.SearchUiState
+import com.example.api.states.SearchUiState
 import com.example.api.repository.SearchRepository
 import com.example.search_screen.history.SearchHistoryStore
 import com.example.search_screen.paging.asPager
-import com.example.search_screen.utils.MockData
 import com.example.search_screen.utils.SearchScreenDefaults as SSD
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -31,7 +30,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.time.debounce
 import javax.inject.Inject
 @RequiresApi(Build.VERSION_CODES.O)
 class  SearchViewModel @Inject constructor(

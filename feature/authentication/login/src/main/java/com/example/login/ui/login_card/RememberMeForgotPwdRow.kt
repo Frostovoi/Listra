@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import com.example.api.models.states.LoginUiState
+import com.example.api.states.LoginUiState
 import com.example.login.LoginEvent
 import com.example.login.utils.LoginScreenDefaults as LSD
 

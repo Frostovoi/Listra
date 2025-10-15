@@ -8,5 +8,4 @@ sealed interface LoginEvent {
     data object ForgotPasswordClick : LoginEvent
     data object SignUpClick : LoginEvent
     data object GoogleClick : LoginEvent
-    data object AppleClick : LoginEvent
 }

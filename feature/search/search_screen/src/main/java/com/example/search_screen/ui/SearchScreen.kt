@@ -32,7 +32,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.paging.PagingData
 import com.example.api.models.ListingItem
-import com.example.api.models.states.SearchUiState
+import com.example.api.states.SearchUiState
 import kotlinx.coroutines.flow.Flow
 import com.example.search_screen.R as SearchR
 

@@ -1,16 +1,14 @@
 package com.example.my_ads
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.api.models.ListingItem
 import com.example.api.repository.AdsRepository
 import com.example.api.models.ListingTab
-import com.example.api.models.states.MyAdsUiState
-import com.example.network.utils.doOnSuccess
+import com.example.api.states.MyAdsUiState
+import com.example.api.utils.doOnSuccess
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

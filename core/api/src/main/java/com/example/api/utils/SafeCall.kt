@@ -1,4 +1,4 @@
-package com.example.network.utils
+package com.example.api.utils
 
 import kotlinx.serialization.SerializationException
 import retrofit2.HttpException

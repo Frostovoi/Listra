@@ -5,13 +5,9 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.example.api.models.ListingItem
-import com.example.api.models.ListingStatus
-import com.example.api.models.states.MyAdsUiState
 import com.example.navigation.Destinations
 import com.example.navigation.FeatureEntry
 import com.example.navigation.Navigator
-import java.time.LocalDate
 import javax.inject.Inject
 
 

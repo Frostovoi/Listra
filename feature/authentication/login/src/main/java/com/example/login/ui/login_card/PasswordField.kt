@@ -23,7 +23,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.example.api.models.states.LoginUiState
+import com.example.api.states.LoginUiState
 import com.example.login.LoginEvent
 import com.example.login.utils.LoginScreenDefaults as LSD
 

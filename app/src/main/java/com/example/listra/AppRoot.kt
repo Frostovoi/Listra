@@ -15,7 +15,7 @@ fun AppRoot(
 ) {
    NavHost(
        navController = navController,
-       startDestination = Destinations.Search.route
+       startDestination = Destinations.Login.route
    ) {
        registry.registerAll(builder = this, navigator = navigator)
    }

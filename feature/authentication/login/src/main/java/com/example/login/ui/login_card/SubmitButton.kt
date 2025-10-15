@@ -12,7 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.api.models.states.LoginUiState
+import com.example.api.states.LoginUiState
 import com.example.login.LoginEvent
 import com.example.login.utils.LoginScreenDefaults as LSD
 

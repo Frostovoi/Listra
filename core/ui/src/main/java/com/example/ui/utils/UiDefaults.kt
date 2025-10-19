@@ -32,6 +32,8 @@ object UiDefaults {
     val ProgressIndicatorWidth = 2.dp
     val SubmitErrorPad = 8.dp
 
+    val SocialButtonHeight = 50.dp
+
 
 
 

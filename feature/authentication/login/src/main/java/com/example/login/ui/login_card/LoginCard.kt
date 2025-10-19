@@ -17,6 +17,7 @@ import com.example.login.utils.LoginEvent
 import com.example.ui.auth.BottomRow
 import com.example.ui.auth.EmailField
 import com.example.ui.auth.PasswordField
+import com.example.ui.auth.SocialButton
 import com.example.ui.auth.SubmitButton
 import com.example.ui.utils.UiDefaults.CARD_COLOR_ALPHA
 import com.example.ui.utils.UiDefaults.CardColumnPad
@@ -81,7 +82,8 @@ fun LoginCard(
             OrDivider()
 
             SocialButton(
-                onGoogle = {
+                label = LSD.GOOGLE_BUTTON_TEXT,
+                onButtonPressed = {
                     onEvent(LoginEvent.GoogleClick)
                 }
             )

@@ -15,7 +15,7 @@ object RegisterScreenDefaults {
     const val UNKNOWN_DATA_TEXT = "Check your data"
     const val SIGN_UP_ERROR_TEXT = "Sign up error"
     const val SIGN_UP_TEXT = "Sign up"
-    const val HAVE_ACCOUNT_TEXT = "Have an account?"
+    const val HAVE_ACCOUNT_TEXT = "Have an account? "
     const val SIGN_IN_TEXT = "Sign in"
 
     const val EMAIL_LABEL = "Enter email"

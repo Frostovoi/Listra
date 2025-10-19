@@ -1,12 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.example.register"
+    namespace = "com.example.ui"
     compileSdk = 36
 
     defaultConfig {
@@ -32,6 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
@@ -43,11 +43,9 @@ android {
 
 dependencies {
 
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.foundation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -55,15 +53,6 @@ dependencies {
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
-
-    //Dagger2
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
-
-
-    //Navigation
-    implementation(libs.androidx.navigation.compose)
-
 
     // Compose
     implementation(libs.androidx.navigation.compose)
@@ -74,18 +63,7 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.androidx.compose.material.iconsExtended)
 
-    // Coroutines
-    implementation(libs.bundles.coroutines)
-
-    // ViewModel
-    implementation(libs.androidx.lifecycle.viewModelCompose)
-    implementation(libs.androidx.lifecycle.lifecycle.viewmodel.ktx)
-
-    implementation(project(":core:navigation"))
     implementation(project(":core:api"))
-    implementation(project(":core:network"))
-    implementation(project(":core:di"))
-    implementation(project(":core:ui"))
-
 }

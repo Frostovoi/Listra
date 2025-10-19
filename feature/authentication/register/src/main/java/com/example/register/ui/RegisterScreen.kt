@@ -1,4 +1,4 @@
-package com.example.login.ui
+package com.example.register.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,23 +20,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.api.states.LoginUiState
-import com.example.login.utils.LoginEvent
-import com.example.login.ui.login_card.LoginCard
+import com.example.api.states.RegisterUiState
+import com.example.register.utils.RegisterEvent
 import com.example.ui.auth.gradientBackground
 import com.example.ui.auth.TitleColumn
 import com.example.ui.utils.UiDefaults
-import com.example.login.utils.LoginScreenDefaults as LSD
+import com.example.ui.utils.UiDefaults.ColumnHPad
+import com.example.register.utils.RegisterScreenDefaults as RSD
 
 @Composable
-fun LoginScreen(
-    state: LoginUiState,
-    onEvent: (LoginEvent) -> Unit,
+fun RegisterScreen(
+    state: RegisterUiState,
+    onEvent: (RegisterEvent) -> Unit,
     snackbarHostState: SnackbarHostState,
-    title: String = LSD.TITLE_TEXT,
-    subtitle: String = LSD.SUBTITLE_TEXT
-) {
+    title: String = RSD.TITLE_TEXT,
+    subtitle: String = RSD.SUBTITLE_TEXT
 
+) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = Color.Transparent,
@@ -47,12 +47,12 @@ fun LoginScreen(
                 .fillMaxSize()
                 .background(gradientBackground())
                 .padding(paddingValues)
-        ) {
+        ){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
-                    .padding(horizontal = UiDefaults.ColumnHPad)
+                    .padding(horizontal = ColumnHPad)
                     .navigationBarsPadding()
                     .imePadding(),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -62,34 +62,25 @@ fun LoginScreen(
                     title = title,
                     subtitle = subtitle
                 )
-                LoginCard(
+
+                RegisterCard(
                     state = state,
                     onEvent = onEvent
                 )
-
-                if (state.isLoading) {
-                    LoadingIndicator()
-                }
             }
         }
-
     }
 }
 
-
-
-
 @Preview
 @Composable
-fun LoginScreenPreview() {
+fun RegisterScreenPreview() {
     MaterialTheme {
         val snackbar = remember { SnackbarHostState() }
-        MaterialTheme {
-            LoginScreen(
-                state = LoginUiState(),
-                onEvent = {},
-                snackbarHostState = snackbar
-            )
-        }
+        RegisterScreen(
+            state = RegisterUiState(),
+            onEvent = {},
+            snackbarHostState = snackbar
+        )
     }
 }

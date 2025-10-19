@@ -1,6 +1,7 @@
 package com.example.register
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.navigation.Destinations
@@ -19,7 +20,11 @@ class RegisterEntry @Inject constructor(
         navigator: Navigator
     ) {
         builder.composable(route = featureRoute) {
-            RegisterHost()
+            RegisterHost(
+                vmFactory = vmFactory,
+                backStackEntry = it,
+                onOpenSignIn = { navigator.navigate(Destinations.Login.route) }
+            )
         }
     }
 }

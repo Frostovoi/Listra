@@ -1,4 +1,4 @@
-package com.example.login.ui.login_card
+package com.example.ui.auth
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
@@ -13,43 +13,48 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.api.states.LoginUiState
-import com.example.login.LoginEvent
-import com.example.login.utils.LoginScreenDefaults as LSD
+import com.example.ui.utils.UiDefaults.ProgressIndicatorSize
+import com.example.ui.utils.UiDefaults.ProgressIndicatorWidth
+import com.example.ui.utils.UiDefaults.SubmitButtonHeight
+import com.example.ui.utils.UiDefaults.SubmitErrorPad
 
 @Composable
 fun SubmitButton(
-    onEvent: (LoginEvent) -> Unit,
-    state: LoginUiState
+    onSubmit: () -> Unit,
+    enabled: Boolean,
+    isLoading: Boolean,
+    label: String,
+    formError: String? = null
 ) {
     Button(
         onClick = {
-            onEvent(LoginEvent.Submit)
+            onSubmit()
         },
         modifier = Modifier
             .fillMaxWidth()
-            .height(LSD.SubmitButtonHeight),
-        enabled = !state.isLoading && state.email.isNotBlank() && state.password.isNotBlank()
+            .height(SubmitButtonHeight),
+        enabled = enabled
     ) {
         Crossfade(
-            targetState = state.isLoading,
+            targetState = isLoading,
 
             ) { loading ->
             if (loading) {
                 CircularProgressIndicator(
-                    modifier = Modifier.size(LSD.ProgressIndicatorSize),
-                    strokeWidth = LSD.ProgressIndicatorWidth
+                    modifier = Modifier.size(ProgressIndicatorSize),
+                    strokeWidth = ProgressIndicatorWidth
                 )
             } else {
-                Text(LSD.SIGN_IN_TEXT)
+                Text(label)
             }
         }
     }
-    AnimatedVisibility(visible = state.formError != null) {
+    AnimatedVisibility(visible = formError != null) {
         Text(
-            text = state.formError ?: "",
+            text = formError ?: "",
             color = MaterialTheme.colorScheme.error,
             style = MaterialTheme.typography.bodySmall,
-            modifier = Modifier.padding(top = LSD.SubmitErrorPad)
+            modifier = Modifier.padding(top = SubmitErrorPad)
         )
     }
 }

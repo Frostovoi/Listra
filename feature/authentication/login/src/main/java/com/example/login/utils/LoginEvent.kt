@@ -1,4 +1,4 @@
-package com.example.login
+package com.example.login.utils
 
 sealed interface LoginEvent {
     data class EmailChanged(val value: String) : LoginEvent

@@ -1,4 +1,4 @@
-package com.example.login.ui.login_card
+package com.example.ui.auth
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,24 +23,25 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.example.api.states.LoginUiState
-import com.example.login.LoginEvent
-import com.example.login.utils.LoginScreenDefaults as LSD
+import com.example.ui.utils.UiDefaults.PASSWORD_PLACEHOLDER
 
 @Composable
 fun PasswordField(
-    state: LoginUiState,
-    onEvent: (LoginEvent) -> Unit,
+    passwordValue: String,
+    passwordLabel: String,
+    passwordError: String? = null,
+    onPasswordChanged: (String) -> Unit,
+    onSubmit: () -> Unit = {}
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
 
     OutlinedTextField(
-        value = state.password,
-        onValueChange = { onEvent(LoginEvent.PasswordChanged(it))},
+        value = passwordValue,
+        onValueChange = onPasswordChanged,
         modifier = Modifier.fillMaxWidth(),
-        label = { Text(LSD.PASSWORD_LABEL) },
-        placeholder = { Text(LSD.PASSWORD_PLACEHOLDER) },
+        label = { Text(text = passwordLabel) },
+        placeholder = { Text(PASSWORD_PLACEHOLDER) },
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Lock,
@@ -63,11 +64,11 @@ fun PasswordField(
             }
         },
         singleLine = true,
-        isError = state.passwordError != null,
+        isError = passwordError != null,
         supportingText = {
-            AnimatedVisibility(visible = state.passwordError != null) {
+            AnimatedVisibility(visible = passwordError != null) {
                 Text(
-                    text = state.passwordError ?: "",
+                    text = passwordError ?: "",
                     color = MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.bodySmall
                 )
@@ -82,7 +83,7 @@ fun PasswordField(
         keyboardActions = KeyboardActions(
             onDone = {
                 focusManager.clearFocus()
-                onEvent(LoginEvent.Submit)
+                onSubmit()
             }
         )
     )

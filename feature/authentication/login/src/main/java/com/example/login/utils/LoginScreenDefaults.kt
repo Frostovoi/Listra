@@ -7,9 +7,7 @@ import androidx.compose.ui.unit.sp
 @Stable
 internal object LoginScreenDefaults {
 
-    const val GRADIENT_COLOR_ALPHA_1 = 0.85f
-    const val GRADIENT_COLOR_ALPHA_2 = 0.65f
-    const val GRADIENT_COLOR_ALPHA_3 = 0.55f
+
     const val SUBTITLE_COLOR_ALPHA = 0.85f
     const val LOGIN_CARD_COLOR_ALPHA = 0.96f
     const val REMEMBER_ME_COLOR_ALPHA = 0.3f

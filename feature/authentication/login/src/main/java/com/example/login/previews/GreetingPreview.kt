@@ -4,14 +4,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.login.ui.Greeting
+import com.example.ui.auth.TitleColumn
 
 @Preview
 @Composable
 private fun GreetingPreview() {
     MaterialTheme {
         Column {
-            Greeting(
+            TitleColumn(
                 title = "Welcome Back",
                 subtitle = "Sign in to continue"
             )

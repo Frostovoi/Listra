@@ -1,5 +1,6 @@
-package com.example.login.ui.login_card
+package com.example.ui.auth
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -9,27 +10,33 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import com.example.login.LoginEvent
-import com.example.login.utils.LoginScreenDefaults as LSD
+
+
+
 
 @Composable
-fun SignUpRow(
-    onEvent: (LoginEvent) -> Unit
+fun BottomRow(
+    initialText: String,
+    navigationText: String,
+    onNavigation: () -> Unit
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
         Text(
-            text = LSD.NO_ACCOUNT_TEXT,
+            text = initialText,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Text(
-            text = LSD.SIGN_UP_TEXT,
+            text = navigationText,
             color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.clickable { onEvent(LoginEvent.SignUpClick) }
+            modifier = Modifier.clickable {
+                onNavigation()
+                Log.d("BottomRow", "onNavigation")
+            }
         )
     }
 }

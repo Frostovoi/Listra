@@ -26,7 +26,7 @@ class LoginEntry @Inject constructor(
                 vmFactory = vmFactory,
                 googleIdentity = googleIdentity,
                 onOpenForgot = {},
-                onOpenSignUp = {},
+                onOpenSignUp = { navigator.navigate(Destinations.Register.route) },
             )
         }
     }

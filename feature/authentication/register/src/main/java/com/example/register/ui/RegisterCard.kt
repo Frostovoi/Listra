@@ -1,4 +1,4 @@
-package com.example.login.ui.login_card
+package com.example.register.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,23 +11,23 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.api.states.LoginUiState
-import com.example.login.utils.LoginEvent
+import com.example.api.states.RegisterUiState
+import com.example.register.utils.RegisterEvent
+import com.example.register.utils.RegisterScreenDefaults
 import com.example.ui.auth.BottomRow
 import com.example.ui.auth.EmailField
+import com.example.ui.auth.FullNameField
 import com.example.ui.auth.PasswordField
 import com.example.ui.auth.SubmitButton
 import com.example.ui.utils.UiDefaults.CARD_COLOR_ALPHA
 import com.example.ui.utils.UiDefaults.CardColumnPad
 import com.example.ui.utils.UiDefaults.CardElevation
 import com.example.ui.utils.UiDefaults.CardShapeSmoothing
-import com.example.login.utils.LoginScreenDefaults as LSD
 
 @Composable
-fun LoginCard(
-    state: LoginUiState,
-    onEvent: (LoginEvent) -> Unit,
+fun RegisterCard(
+    state: RegisterUiState,
+    onEvent: (RegisterEvent) -> Unit,
 ) {
     ElevatedCard(
         modifier = Modifier.fillMaxWidth(),
@@ -44,61 +44,59 @@ fun LoginCard(
                 .fillMaxWidth()
                 .padding(CardColumnPad)
         ) {
-            EmailField(
-                emailLabel = LSD.EMAIL_LABEL,
-                emailValue = state.email,
-                emailError = state.emailError,
-                onEmailChanged = { onEvent(LoginEvent.EmailChanged(value = it))}
+            FullNameField(
+                fullNameValue = state.fullName,
+                fullNameError = state.fullNameError,
+                label = RegisterScreenDefaults.FULL_NAME_LABEL,
+                onFullNameChanged = { onEvent(RegisterEvent.NameChanged(it)) }
             )
 
-            Spacer(Modifier.height(LSD.EmailPasswordSpacer))
+
+
+            EmailField(
+                emailValue = state.email,
+                emailError = state.emailError,
+                emailLabel = RegisterScreenDefaults.EMAIL_LABEL,
+                onEmailChanged = { onEvent(RegisterEvent.EmailChanged(value = it)) }
+            )
 
             PasswordField(
                 passwordValue = state.password,
-                passwordLabel = LSD.PASSWORD_LABEL,
                 passwordError = state.passwordError,
-                onPasswordChanged = { onEvent(LoginEvent.PasswordChanged(it)) },
-                onSubmit = { onEvent(LoginEvent.Submit)}
+                passwordLabel = RegisterScreenDefaults.PASSWORD_LABEL,
+                onPasswordChanged = { onEvent(RegisterEvent.PasswordChanged(value = it)) }
             )
 
-            Spacer(Modifier.height(LSD.PasswordRowSpacer))
 
-            RememberMeForgotPwdRow(
-                state = state,
-                onEvent = onEvent,
+
+            PasswordField(
+                passwordValue = state.confirm,
+                passwordError = state.confirmError,
+                passwordLabel = RegisterScreenDefaults.PASSWORD_REPEAT_LABEL,
+                onPasswordChanged = { onEvent(RegisterEvent.ConfirmChanged(value = it)) }
             )
 
-            Spacer(Modifier.height(LSD.RememberSubmitSpacer))
+            Spacer(Modifier.height(RegisterScreenDefaults.TextFieldButtonSpacer))
 
             SubmitButton(
-                onSubmit = { onEvent(LoginEvent.Submit) },
-                enabled = !state.isLoading && state.email.isNotBlank() && state.password.isNotBlank(),
+                onSubmit = { onEvent(RegisterEvent.Submit) },
+                enabled = !state.isLoading
+                        && state.email.isNotBlank()
+                        && state.password.isNotBlank()
+                        && state.confirm.isNotBlank(),
                 isLoading = state.isLoading,
-                label = LSD.SIGN_IN_TEXT,
+                label = RegisterScreenDefaults.SIGN_UP_TEXT,
                 formError = state.formError
             )
 
-            OrDivider()
-
-            SocialButton(
-                onGoogle = {
-                    onEvent(LoginEvent.GoogleClick)
-                }
-            )
-
-            Spacer(Modifier.height(LSD.SocialSignUpSpacer))
+            Spacer(Modifier.height(RegisterScreenDefaults.ButtonBottomRowSpacer))
 
             BottomRow(
-                initialText = LSD.NO_ACCOUNT_TEXT,
-                navigationText = LSD.SIGN_UP_TEXT,
-                onNavigation = { onEvent(LoginEvent.SignUpClick) }
+                initialText = RegisterScreenDefaults.HAVE_ACCOUNT_TEXT,
+                navigationText = RegisterScreenDefaults.SIGN_IN_TEXT,
+                onNavigation = { onEvent(RegisterEvent.SignInClick)}
             )
+
         }
     }
 }
-
-
-
-
-
-

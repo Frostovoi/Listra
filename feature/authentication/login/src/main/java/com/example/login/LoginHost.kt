@@ -15,7 +15,11 @@ import com.example.api.utils.doOnError
 import com.example.api.utils.doOnSuccess
 import com.example.identity_api.GoogleIdentityProvider
 import com.example.login.ui.LoginScreen
+import com.example.login.utils.LoginEffect
+import com.example.login.utils.LoginEvent
 import com.example.login.utils.LoginScreenDefaults
+
+private const val TAG = "LoginHost"
 
 
 @Composable
@@ -47,19 +51,18 @@ fun LoginHost(
                         }
                 }
                 is LoginEffect.ShowMessage -> snackbar.showSnackbar(eff.text)
+                is LoginEffect.OpenSignUp -> {
+                    onOpenSignUp()
+                    Log.d(TAG, "OpenSignUp")
+                }
+                is LoginEffect.OpenForgot -> onOpenForgot()
             }
         }
     }
 
     LoginScreen(
         state = ui,
-        onEvent = {
-            when (it) {
-                is LoginEvent.ForgotPasswordClick -> onOpenForgot()
-                is LoginEvent.SignUpClick -> onOpenSignUp()
-                else -> vm.onEvent(it)
-            }
-        },
+        onEvent = vm::onEvent,
         snackbarHostState = snackbar,
     )
 }

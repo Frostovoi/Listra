@@ -1,5 +1,6 @@
 package com.example.login
 
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,6 +8,8 @@ import com.example.api.states.LoginUiState
 import com.example.api.repository.AuthRepository
 import com.example.api.utils.doOnError
 import com.example.api.utils.doOnSuccess
+import com.example.login.utils.LoginEffect
+import com.example.login.utils.LoginEvent
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableSharedFlow
 import com.example.login.utils.LoginScreenDefaults as LSD
@@ -51,8 +54,15 @@ class LoginViewModel @Inject constructor(
             }
             is LoginEvent.RememberMeChanged -> _uiState.update { it.copy(rememberMe = event.value) }
             is LoginEvent.Submit -> submit()
-            is LoginEvent.ForgotPasswordClick -> Unit // #TODO навигация восстановление пароля
-            is LoginEvent.SignUpClick -> Unit // #TODO доделать навигацию регистрации
+            is LoginEvent.ForgotPasswordClick -> viewModelScope.launch { _effects.emit(
+                value = LoginEffect.OpenForgot
+            ) }
+            is LoginEvent.SignUpClick -> viewModelScope.launch {
+                Log.d("LoginViewModel", "onSignUp")
+                _effects.emit(
+                    value = LoginEffect.OpenSignUp
+                )
+            }
             is LoginEvent.GoogleClick -> viewModelScope.launch { _effects.emit(
                 value = LoginEffect.StartGoogleSignIn
             ) }
@@ -110,10 +120,12 @@ class LoginViewModel @Inject constructor(
             _uiState.update { it.copy(isLoading = false) }
             res
                 .doOnSuccess {
+
                 // #TODO навигация
             }
                 .doOnError {
-                    _effects.emit(LoginEffect.ShowMessage(
+                    _effects.emit(
+                        LoginEffect.ShowMessage(
                         it.message ?: LSD.GOOGLE_ERROR_TEXT
                     ))
                 }

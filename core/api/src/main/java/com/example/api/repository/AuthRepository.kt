@@ -9,5 +9,7 @@ interface AuthRepository {
 
     suspend fun signInWithGoogle(idToken: String): Result<UserSession, Throwable>
 
-    suspend fun  signOut(): Result<Unit, Throwable>
+    suspend fun signOut(): Result<Unit, Throwable>
+
+    suspend fun signUp(email: String, password: String, fullName: String): Result<Unit, Throwable>
 }

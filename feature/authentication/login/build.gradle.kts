@@ -84,6 +84,8 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:di"))
     implementation(project(":core:identity-api"))
+    implementation(project(":core:ui"))
+
 
 
 }

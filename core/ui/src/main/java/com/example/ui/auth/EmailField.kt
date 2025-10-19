@@ -1,4 +1,4 @@
-package com.example.login.ui.login_card
+package com.example.ui.auth
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,21 +12,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
-import com.example.api.states.LoginUiState
-import com.example.login.LoginEvent
-import com.example.login.utils.LoginScreenDefaults as LSD
+import com.example.ui.utils.UiDefaults.EMAIL_LABEL
+import com.example.ui.utils.UiDefaults.EMAIL_PLACEHOLDER
+
 
 @Composable
 fun EmailField(
-    state: LoginUiState,
-    onEvent: (LoginEvent) -> Unit
+    emailValue: String,
+    emailError: String?,
+    emailLabel: String,
+    onEmailChanged: (String) -> Unit
 ) {
     OutlinedTextField(
-        value = state.email,
-        onValueChange = { onEvent(LoginEvent.EmailChanged(value = it)) },
+        value = emailValue,
+        onValueChange = onEmailChanged,
         modifier = Modifier.fillMaxWidth(),
-        label = { Text(LSD.EMAIL_LABEL)},
-        placeholder = { Text(LSD.EMAIL_PLACEHOLDER)},
+        label = { Text(emailLabel)},
+        placeholder = { Text(EMAIL_PLACEHOLDER)},
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Email,
@@ -34,11 +36,11 @@ fun EmailField(
             )
         },
         singleLine = true,
-        isError = state.emailError != null,
+        isError = emailError != null,
         supportingText = {
-            AnimatedVisibility(visible = state.emailError != null ) {
+            AnimatedVisibility(visible = emailError != null ) {
                 Text(
-                    text = state.emailError ?: "",
+                    text = emailError ?: "",
                     color = MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.bodySmall
                 )

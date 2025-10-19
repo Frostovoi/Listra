@@ -29,4 +29,12 @@ class AuthRepositoryImpl @Inject constructor(val api: AuthApi) : AuthRepository 
     override suspend fun signOut(): Result<Unit, Throwable> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun signUp(
+        email: String,
+        password: String,
+        fullName: String
+    ): Result<Unit, Throwable> {
+        TODO("Not yet implemented")
+    }
 }

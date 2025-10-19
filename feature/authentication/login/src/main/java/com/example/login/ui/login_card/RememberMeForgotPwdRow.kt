@@ -26,7 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import com.example.api.states.LoginUiState
-import com.example.login.LoginEvent
+import com.example.login.utils.LoginEvent
 import com.example.login.utils.LoginScreenDefaults as LSD
 
 

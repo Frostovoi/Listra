@@ -1,4 +1,4 @@
-package com.example.login.ui
+package com.example.ui.auth
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -8,11 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
-import com.example.login.utils.LoginScreenDefaults as LSD
+import com.example.ui.utils.UiDefaults
 
 @Composable
-fun Greeting(
+fun TitleColumn(
     title: String,
     subtitle: String
 ) {
@@ -21,22 +20,21 @@ fun Greeting(
         text = title,
         style = MaterialTheme.typography.headlineMedium.copy(
             fontWeight = FontWeight.Bold,
-            letterSpacing = LSD.TitleLetterSpacing
+            letterSpacing = UiDefaults.TitleLetterSpacing
         ),
         color = MaterialTheme.colorScheme.onPrimary,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = LSD.TitleBottomPad),
+            .padding(bottom = UiDefaults.TitleBottomPad),
         textAlign = TextAlign.Start
     )
 
     Text(
         text = subtitle,
         style = MaterialTheme.typography.bodyLarge,
-        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = LSD.   SUBTITLE_COLOR_ALPHA),
+        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = UiDefaults.SUBTITLE_COLOR_ALPHA),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = LSD.SubtitleBottomPad)
+            .padding(bottom = UiDefaults.SubtitleBottomPad)
     )
-
 }

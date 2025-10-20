@@ -50,6 +50,8 @@ dependencies {
     implementation(project(":core:api"))
     implementation(project(":core:network"))
     implementation(project(":core:di"))
+    implementation(project(":core:ui"))
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

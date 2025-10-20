@@ -95,7 +95,7 @@ class LoginViewModel @Inject constructor(
                     text = it.message ?: LSD.LOGIN_FAILED_TEXT
                 )) }
                 .doOnSuccess {
-                // #TODO сделать навигацию
+                // #TODO сделать навигацию внутрь приложения
                 }
 
 

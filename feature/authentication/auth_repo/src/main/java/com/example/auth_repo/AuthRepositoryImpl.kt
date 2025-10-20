@@ -37,4 +37,10 @@ class AuthRepositoryImpl @Inject constructor(val api: AuthApi) : AuthRepository 
     ): Result<Unit, Throwable> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun resetPassword(email: String): Result<Unit, Throwable> {
+        TODO("Not yet implemented")
+    }
+
+
 }

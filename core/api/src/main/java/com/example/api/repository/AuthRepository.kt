@@ -12,4 +12,6 @@ interface AuthRepository {
     suspend fun signOut(): Result<Unit, Throwable>
 
     suspend fun signUp(email: String, password: String, fullName: String): Result<Unit, Throwable>
+
+    suspend fun resetPassword(email: String): Result<Unit, Throwable>
 }

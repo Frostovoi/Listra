@@ -32,7 +32,7 @@ fun LoginHost(
 ) {
     val snackbar = remember { SnackbarHostState() }
     val vm: LoginViewModel = viewModel(viewModelStoreOwner = backStackEntry, factory = vmFactory)
-    val ui by vm.uiState.collectAsStateWithLifecycle()
+    val state by vm.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     LaunchedEffect(Unit) {
@@ -61,7 +61,7 @@ fun LoginHost(
     }
 
     LoginScreen(
-        state = ui,
+        state = state,
         onEvent = vm::onEvent,
         snackbarHostState = snackbar,
     )

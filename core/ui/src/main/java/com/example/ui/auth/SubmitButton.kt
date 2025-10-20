@@ -20,11 +20,11 @@ import com.example.ui.utils.UiDefaults.SubmitErrorPad
 
 @Composable
 fun SubmitButton(
-    onSubmit: () -> Unit,
     enabled: Boolean,
     isLoading: Boolean,
     label: String,
-    formError: String? = null
+    formError: String? = null,
+    onSubmit: () -> Unit
 ) {
     Button(
         onClick = {

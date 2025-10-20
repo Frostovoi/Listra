@@ -19,7 +19,11 @@ class ResetEntry @Inject constructor(
         navigator: Navigator
     ) {
         builder.composable(route = featureRoute) {
-            ResetHost()
+            ResetHost(
+                vmFactory = vmFactory,
+                backStackEntry = it,
+                onOpenSignIn = { navigator.navigate(Destinations.Login.route)}
+            )
         }
     }
 }

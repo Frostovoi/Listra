@@ -22,7 +22,7 @@ fun RegisterHost(
 ) {
 
     val vm: RegisterViewModel = viewModel(viewModelStoreOwner = backStackEntry, factory = vmFactory)
-    val ui by vm.state.collectAsStateWithLifecycle()
+    val state by vm.state.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
 
     LaunchedEffect(Unit) {
@@ -35,7 +35,7 @@ fun RegisterHost(
     }
 
     RegisterScreen(
-        state = ui,
+        state = state,
         onEvent = vm::onEvent,
         snackbarHostState = snackbar
     )

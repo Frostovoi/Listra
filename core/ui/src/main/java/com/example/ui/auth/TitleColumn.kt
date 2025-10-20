@@ -26,7 +26,7 @@ fun TitleColumn(
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = UiDefaults.TitleBottomPad),
-        textAlign = TextAlign.Start
+        textAlign = TextAlign.Center
     )
 
     Text(
@@ -35,6 +35,7 @@ fun TitleColumn(
         color = MaterialTheme.colorScheme.onPrimary.copy(alpha = UiDefaults.SUBTITLE_COLOR_ALPHA),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = UiDefaults.SubtitleBottomPad)
+            .padding(bottom = UiDefaults.SubtitleBottomPad),
+        textAlign = TextAlign.Center
     )
 }

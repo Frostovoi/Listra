@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.example.navigation.Destinations
+import com.example.listra.FeatureRegistry
 import com.example.navigation.Navigator
 
 @Composable
@@ -14,7 +15,7 @@ fun AppRoot(
 ) {
    NavHost(
        navController = navController,
-       startDestination = Destinations.MyAds.route
+       startDestination = Destinations.Login.route
    ) {
        registry.registerAll(builder = this, navigator = navigator)
    }

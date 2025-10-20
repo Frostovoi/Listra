@@ -52,12 +52,26 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:api"))
     implementation(project(":core:network"))
+    implementation(project(":core:di"))
+    implementation(project(":core:identity-google"))
+    implementation(project(":core:identity-api"))
+
     implementation(project(":feature:ads:ads_repo"))
+    implementation(project(":feature:search:search_repo"))
+
     implementation(project(":feature:ads:my_ads"))
     implementation(project(":feature:ads:post_ad"))
     implementation(project(":feature:ads:ad_details"))
     implementation(project(":feature:profile:profile"))
-    implementation(project(":feature:authentication:auth"))
+    implementation(project(":feature:search:search_screen"))
+    implementation(project(":feature:authentication:login"))
+    implementation(project(":feature:authentication:register"))
+    implementation(project(":feature:authentication:reset"))
+    implementation(project(":feature:authentication:auth_repo"))
+    implementation(libs.googleid)
+    implementation(libs.play.services.auth)
+
+
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -72,6 +86,9 @@ dependencies {
     // Dagger
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
 
 
     //Compose

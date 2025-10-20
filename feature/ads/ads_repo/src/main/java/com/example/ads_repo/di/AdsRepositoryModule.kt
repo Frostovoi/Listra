@@ -8,9 +8,7 @@ import javax.inject.Singleton
 
 @Module
 interface AdsRepositoryModule {
-
     @Singleton
     @Binds
     fun bindAdsRepository(impl: AdsRepositoryImpl): AdsRepository
-
 }

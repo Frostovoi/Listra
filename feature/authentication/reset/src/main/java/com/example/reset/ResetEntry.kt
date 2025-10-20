@@ -1,0 +1,29 @@
+package com.example.reset
+
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
+import com.example.navigation.Destinations
+import com.example.navigation.FeatureEntry
+import com.example.navigation.Navigator
+import javax.inject.Inject
+
+class ResetEntry @Inject constructor(
+    private val vmFactory: ViewModelProvider.Factory
+): FeatureEntry {
+    override val featureRoute: String
+        get() = Destinations.Reset.route
+
+    override fun register(
+        builder: NavGraphBuilder,
+        navigator: Navigator
+    ) {
+        builder.composable(route = featureRoute) {
+            ResetHost(
+                vmFactory = vmFactory,
+                backStackEntry = it,
+                onOpenSignIn = { navigator.navigate(Destinations.Login.route)}
+            )
+        }
+    }
+}

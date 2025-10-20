@@ -14,6 +14,9 @@ object UiDefaults {
     const val EMAIL_LABEL = "Email"
     const val EMAIL_PLACEHOLDER = "you@mail.com"
     const val PASSWORD_PLACEHOLDER = "••••••••"
+    const val BLANK_EMAIL_TEXT = "Email is required"
+    const val INVALID_EMAIL_TEXT = "Invalid email"
+    const val SHORT_PASSWORD_TEXT = "At least 8 characters"
 
     val ColumnHPad = 24.dp
 

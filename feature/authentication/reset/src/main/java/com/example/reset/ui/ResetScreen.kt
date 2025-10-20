@@ -68,10 +68,7 @@ fun ResetScreen(
                     state = state,
                     onEvent = onEvent
                 )
-
             }
-
-
         }
     }
 }

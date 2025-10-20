@@ -10,6 +10,8 @@ import com.example.api.utils.doOnError
 import com.example.api.utils.doOnSuccess
 import com.example.login.utils.LoginEffect
 import com.example.login.utils.LoginEvent
+import com.example.ui.utils.validateEmail
+import com.example.ui.utils.validatePassword
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableSharedFlow
 import com.example.login.utils.LoginScreenDefaults as LSD
@@ -102,15 +104,6 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    private fun validateEmail(email: String): String? =
-        if (email.isBlank()) {
-            LSD.BLANK_EMAIL_TEXT
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            LSD.INVALID_EMAIL_TEXT
-        } else null
-
-    private fun validatePassword(pwd: String): String? =
-        if (pwd.length < 8) LSD.SHORT_PASSWORD_TEXT else null
 
 
     fun onGoogleIdToken(idToken: String) {
